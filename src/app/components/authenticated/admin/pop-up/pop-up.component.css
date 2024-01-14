@@ -1,0 +1,17 @@
+.main-wrapper {
+  height: inherit;
+  width: inherit;
+  position: relative;
+  padding-right: 10rem;
+  padding-bottom: 3.813rem;
+}
+
+.image-section {
+  width: 173.089px;
+  height: 186.913px;
+  flex-shrink: 0;
+  border-radius: 4px;
+  border: 1px solid #979797;
+  background-color: #979797;
+  margin-top: 50px;
+}

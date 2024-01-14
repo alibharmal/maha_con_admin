@@ -1,0 +1,35 @@
+<div class="login-wrapper">
+  <div class="login-section">
+    <img src="./../../../../assets/images/MahaCon-Logo-md.png" alt="" />
+    <div class="login-form" [formGroup]="loginForm" >
+      <h1>Log in</h1>
+      <div class="row">
+        <div class="col-md-12 mt-20">
+          <div class="form-group">
+            <label for="" class="form-label">Email</label>
+            <input type="text" class="form-control" placeholder="Enter email" formControlName="email" />
+          </div>
+        </div>
+        <div class="col-md-12 mt-20">
+          <div class="form-group">
+            <label for="" class="form-label">Password</label>
+            <input
+              [type]="showPassword ? 'text' : 'password'"
+              class="form-control"
+              placeholder="Enter your password" formControlName="password"
+            />
+            <span class="show-password" (click)="togglePassword()">
+              <span class="material-symbols-outlined"> visibility </span>
+            </span>
+          </div>
+        </div>
+        <div class="col-md-12 mt-20">
+          <button class="btn login-btn" (click)="login()">Log in</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="banner-section">
+    <div class="banner"></div>
+  </div>
+</div>

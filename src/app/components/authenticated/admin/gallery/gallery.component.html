@@ -1,0 +1,79 @@
+<div class="main-wrapper">
+  <h1 class="page-heading">Add Media</h1>
+  <div class="form">
+    <div class="row mt-25">
+      <div class="col-md-4">
+        <select name="" id="" class="form-select">
+          <option value="">Select Section</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="row mt-50">
+      <p>Select Type of Content</p>
+      <div class="col-md-2">
+        <div class="custom-radio">
+          <input
+            type="radio"
+            name="radioType"
+            id="option1"
+            class="radio-input"
+            value="PHOTO"
+            (change)="onTypeChange()"
+          />
+          <label for="option1" class="radio-label">
+            Photo
+            <span class="radio-outer"></span>
+            <span class="radio-inner"></span>
+          </label>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="custom-radio">
+          <input
+            type="radio"
+            name="radioType"
+            id="option2"
+            class="radio-input"
+            value="VIDEO"
+            (change)="onTypeChange()"
+          />
+          <label for="option2" class="radio-label">
+            Video
+            <span class="radio-outer"></span>
+            <span class="radio-inner"></span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-50">
+      <strong>Upload file</strong>
+      <div class="col-md-4 mt-25">
+        <div class="upload-image-section">
+          <span class="upload-icon">
+            <span class="material-symbols-outlined"> arrow_upward </span>
+          </span>
+          <span class="upload-file-text">Drag files to upload</span>
+          <input
+            type="file"
+            name=""
+            id="upload-file-1"
+            style="display: none"
+            multiple
+          />
+        </div>
+        <button class="btn theme-btn">
+          <label for="upload-file-1"> Choose File</label>
+        </button>
+      </div>
+    </div>
+
+    <div class="row mt-50">
+      <div class="col-md-4">
+        <strong>Media title</strong>
+        <input type="text" class="form-control" placeholder="Enter Here" />
+      </div>
+    </div>
+  </div>
+</div>

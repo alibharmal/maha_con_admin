@@ -1,0 +1,88 @@
+/* You can add global styles to this file, and also import other style files */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.page-heading {
+  color: #000;
+  font-family: Brandon Grotesque;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 420;
+  line-height: 120%; /* 38.4px */
+  text-transform: capitalize;
+}
+
+.form-group {
+  position: relative;
+}
+
+.mt-25 {
+  margin-top: 25px !important;
+}
+.mt-30 {
+  margin-top: 30px !important;
+}
+.mt-50 {
+  margin-top: 50px !important;
+}
+
+.custom-radio {
+  display: flex;
+  align-items: center;
+}
+
+.radio-input {
+  position: absolute;
+  opacity: 0;
+}
+
+.radio-label {
+  position: relative;
+  cursor: pointer;
+  padding-left: 30px;
+  /* Adjust as needed to create space for the radio button */
+  user-select: none;
+  /* Prevent text selection */
+  display: flex;
+  align-items: center;
+}
+
+.radio-outer {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  border: 2px solid #F98A42;
+  border-radius: 50%;
+}
+
+.radio-inner {
+  position: absolute;
+  /* top: 50%; */
+  left: 5px;
+  /* transform: translateY(-40%); */
+  width: 10px;
+  height: 10px;
+  background-color: #F98A42;
+  border-radius: 50%;
+  transform: scale(0);
+  /* Initially scale down to hide */
+  transition: transform 0.2s ease-in-out;
+}
+
+.radio-input:checked + .radio-label .radio-inner {
+  transform: scale(1);
+  /* Scale up when checked */
+}
