@@ -6,39 +6,43 @@
     <ul>
       <li class="nav-list" *ngFor="let item of sidebarList">
         <ng-container *ngIf="item.child.length == 0">
-          <!-- <a [routerLink]="[item.parentRoute]" routerLinkActive="active"> -->
-          <span class="list-icon"
-            ><span class="material-symbols-outlined"> difference </span></span
-          >
-          <span class="list-name">
-            {{ item.parent }}
-          </span>
-          <!-- </a> -->
-        </ng-container>
-        <ng-container *ngIf="item.child.length > 0">
-          <!-- <a [routerLink]="[item.parentRoute]" routerLinkActive="active"> -->
-          <div class="drop-down-list">
+          <a [routerLink]="[item.parentRoute]" routerLinkActive="active">
             <span class="list-icon"
-              ><span class="material-symbols-outlined"> settings </span></span
+              ><span class="material-symbols-outlined"> difference </span></span
             >
-            <span class="list-name-2">
+            <span class="list-name">
               {{ item.parent }}
             </span>
-          </div>
+          </a>
+        </ng-container>
+        <ng-container *ngIf="item.child.length > 0">
+          <a [routerLink]="[item.parentRoute]" routerLinkActive="active">
+            <div class="drop-down-list">
+              <span class="list-icon"
+                ><span class="material-symbols-outlined"> settings </span></span
+              >
+              <span class="list-name-2">
+                {{ item.parent }}
+              </span>
+            </div>
 
-          <div class="toggle-menu-icon">
-            <span class="list-icon">
-              <span class="material-symbols-outlined mt-2"> expand_more </span>
-            </span>
-          </div>
-          <!-- </a> -->
+            <div class="toggle-menu-icon">
+              <span class="list-icon">
+                <span class="material-symbols-outlined mt-2">
+                  expand_more
+                </span>
+              </span>
+            </div>
+          </a>
         </ng-container>
       </li>
     </ul>
     <ul>
       <li class="nav-list" (click)="logout()">
-        <span class="material-symbols-outlined"> logout </span>
-        <span class="list-name"> Logout </span>
+        <a>
+          <span class="material-symbols-outlined"> logout </span>
+          <span class="list-name"> Logout </span>
+        </a>
       </li>
     </ul>
   </div>

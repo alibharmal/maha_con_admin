@@ -14,4 +14,38 @@
   border: 1px solid #979797;
   background-color: #979797;
   margin-top: 50px;
+  position: relative;
+}
+
+img {
+  width: 173.089px;
+  height: 186.913px;
+}
+
+.theme-btn {
+  border-radius: 5px !important;
+  background: #f98a42;
+  color: #fff;
+  font-family: Brandon Grotesque;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 450;
+  line-height: 22px; /* 137.5% */
+}
+
+.theme-btn-secondary {
+  border-radius: 5px !important;
+  background: white;
+  border: 1px solid black;
+  color: #000;
+  font-family: Brandon Grotesque;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 450;
+  line-height: 22px; /* 137.5% */
+}
+
+.btn-group {
+  display: flex;
+  gap: 0.5rem;
 }

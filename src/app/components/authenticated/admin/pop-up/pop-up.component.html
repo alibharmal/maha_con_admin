@@ -1,9 +1,22 @@
-<div class="main-wrapper">
-  <h1 class="page-heading">Pop up</h1>
+<div class="main-wrapper" [formGroup]="popUpForm">
+  <h1 class="page-heading">
+    Pop up
+    <div class="form-check form-switch">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        role="switch"
+        id="flexSwitchCheckChecked"
+        formControlName="status"
+      />
+    </div>
+  </h1>
   <div class="form">
     <div class="row">
       <div class="col-md-4">
-        <div class="image-section"></div>
+        <div class="image-section">
+          <img [src]="imageUrl" alt="" />
+        </div>
         <button class="btn">Change image</button>
       </div>
     </div>
@@ -11,14 +24,19 @@
     <div class="row">
       <div class="col-md-4">
         <label for="" class="form-label">External link</label>
-        <input type="text" class="form-control" placeholder="Enter Here" />
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Enter Here"
+          formControlName="link"
+        />
       </div>
     </div>
 
     <div class="row">
-      <div class="col-md-4">
-        <button class="btn">Submit</button>
-        <button class="btn">Clear</button>
+      <div class="col-md-3 mt-3 btn-group">
+        <button class="btn theme-btn">Submit</button>
+        <button class="btn theme-btn-secondary">Clear</button>
       </div>
     </div>
   </div>

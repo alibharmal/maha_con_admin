@@ -1,6 +1,6 @@
 <div class="main-wrapper">
   <h1 class="page-heading">Event</h1>
-  <div class="form">
+  <div class="form" [formGroup]="eventForm">
     <strong>Upload carousel images</strong>
     <div class="row mt-30">
       <div class="col-md-4">
@@ -27,6 +27,7 @@
         <div class="form-group">
           <label for="" class="form-label">Write Description</label>
           <textarea
+            formControlName="description"
             class="form-control"
             name=""
             id=""
@@ -44,18 +45,38 @@
       <div class="col-md-4">
         <div class="form-group">
           <label for="" class="form-label">Title</label>
-          <input type="text" class="form-control" placeholder="Enter Here" />
+          <input
+            type="text"
+            formControlName="streamTitle"
+            class="form-control"
+            placeholder="Enter Here"
+            [ngClass]="{
+              'is-invalid':
+                control['streamTitle'].invalid &&
+                (control['streamTitle'].touched || control['streamTitle'].dirty)
+            }"
+          />
         </div>
       </div>
       <div class="col-md-4">
         <div class="form-group">
           <label for="" class="form-label">Youtube Link</label>
-          <input type="text" class="form-control" placeholder="Enter Here" />
+          <input
+            type="text"
+            formControlName="streamLink"
+            class="form-control"
+            placeholder="Enter Here"
+            [ngClass]="{
+              'is-invalid':
+                control['streamLink'].invalid &&
+                (control['streamLink'].touched || control['streamLink'].dirty)
+            }"
+          />
         </div>
       </div>
     </div>
 
-    <div class="row mt-30">
+    <!-- <div class="row mt-30">
       <div class="col-md-4">
         <div class="col-md-4">
           <div class="upload-image-section">
@@ -92,12 +113,14 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
+
     <div class="row">
       <div class="col-md-12 mt-25">
         <div class="form-group">
           <label for="" class="form-label">Why vietnam?</label>
           <textarea
+            formControlName="whyVietnam"
             class="form-control"
             name=""
             id=""
@@ -114,7 +137,7 @@
 
     <div class="row mt-25">
       <div class="col-md-2">
-        <button class="btn theme-btn">Upload</button>
+        <button class="btn theme-btn" (click)="updateEvent()">Upload</button>
       </div>
     </div>
   </div>

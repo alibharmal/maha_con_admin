@@ -8,10 +8,11 @@ import { HttpClient, HttpClientModule } from "@angular/common/http";
 import { AuthenticationService } from "src/app/services/auth/authentication.service";
 import { GalleryService } from "src/app/services/gallery/gallery.service";
 import { EventService } from "src/app/services/event/event.service";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [EventComponent, GalleryComponent, PopUpComponent],
-  imports: [CommonModule, AdminRoutingModule, HttpClientModule],
+  imports: [CommonModule, AdminRoutingModule, FormsModule, ReactiveFormsModule, HttpClientModule],
   providers: [AuthenticationService, GalleryService, EventService],
 })
 export class AdminModule {}

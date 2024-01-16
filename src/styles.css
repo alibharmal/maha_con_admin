@@ -20,6 +20,8 @@ body {
   font-weight: 420;
   line-height: 120%; /* 38.4px */
   text-transform: capitalize;
+  display: flex;
+  gap: 2rem;
 }
 
 .form-group {
