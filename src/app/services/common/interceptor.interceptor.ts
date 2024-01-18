@@ -22,7 +22,13 @@ export class InterceptorInterceptor implements HttpInterceptor {
       const req = request.clone({
         headers: request.headers.set("Authorization", `Bearer ${token}`),
       });
-      return next.handle(req);
+      if (
+        request.url.includes("https://maha-con.s3.ap-south-1.amazonaws.com")
+      ) {
+        return next.handle(request);
+      } else {
+        return next.handle(req);
+      }
     } else {
       return next.handle(request);
     }

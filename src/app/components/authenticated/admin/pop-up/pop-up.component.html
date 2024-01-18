@@ -13,15 +13,15 @@
   </h1>
   <div class="form">
     <div class="row">
-      <div class="col-md-4">
+      <div class="col-md-3 d-flex flex-column align-items-center">
         <div class="image-section">
           <img [src]="imageUrl" alt="" />
         </div>
-        <button class="btn">Change image</button>
+        <button class="btn theme-btn mt-2">Change image</button>
       </div>
     </div>
 
-    <div class="row">
+    <div class="row mt-3">
       <div class="col-md-4">
         <label for="" class="form-label">External link</label>
         <input
@@ -35,7 +35,7 @@
 
     <div class="row">
       <div class="col-md-3 mt-3 btn-group">
-        <button class="btn theme-btn">Submit</button>
+        <button class="btn theme-btn" (click)="updatePopUp()" >Submit</button>
         <button class="btn theme-btn-secondary">Clear</button>
       </div>
     </div>

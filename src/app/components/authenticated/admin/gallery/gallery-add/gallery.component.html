@@ -1,0 +1,31 @@
+<div class="main-wrapper">
+  <h1 class="page-heading">Add Media</h1>
+  <div class="form">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="" class="form-label">Title :</label>
+          <input type="text" class="form-control" />
+        </div>
+      </div>
+    </div>
+    <div class="row d-flex flex-column mt-50">
+      <div class="col-md-6 d-flex justify-content-between">
+        <strong>Selected file</strong>
+        <button class="btn theme-btn" (click)="openAddFileModal()">
+          Add File
+        </button>
+      </div>
+      <div class="col-md-6 mt-2" *ngFor="let file of fileList">
+        <div class="card">
+          {{ file }}
+        </div>
+      </div>
+    </div>
+
+    <div class="row d-flex gap-4 mt-4" style="margin-left: 0.1rem">
+      <button class="btn theme-btn">Save</button>
+      <button class="btn theme-btn-secondary">Cancel</button>
+    </div>
+  </div>
+</div>

@@ -1,7 +1,7 @@
 .sidenav {
   background: #f4faff;
   box-shadow: 0px 5px 16px 0px rgba(128, 170, 69, 0.06);
-  transition: all 0.5s ease;
+  /* transition: all 0.5s ease; */
   position: fixed;
   z-index: 5;
   width: 19.5rem;
@@ -73,14 +73,12 @@ li:hover {
 
 .list-name {
   padding: 0 4rem 0 1rem !important;
-  transition: all 1s;
-  animation-delay: 1s;
+  transition: all 0.5s;
 }
 
 .list-name-2 {
   padding: 0 6rem 0 1rem !important;
-  transition: all 1s;
-  animation-delay: 1s;
+  transition: all 0.5s;
 }
 
 .sub-menu {
@@ -104,10 +102,7 @@ a:hover {
   color: white;
 }
 
-.toggle-menu-icon {
-  transition: ease-in 1s;
-  animation-delay: 0.5s;
-}
+
 
 @media (max-width: 768px) {
   .sidenav {

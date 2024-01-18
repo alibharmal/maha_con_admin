@@ -1,14 +1,6 @@
 <div class="main-wrapper">
   <h1 class="page-heading">Add Media</h1>
-  <div class="form">
-    <div class="row mt-25">
-      <div class="col-md-4">
-        <select name="" id="" class="form-select">
-          <option value="">Select Section</option>
-        </select>
-      </div>
-    </div>
-
+  <div class="form" [formGroup]="modalForm">
     <div class="row mt-50">
       <p>Select Type of Content</p>
       <div class="col-md-2">
@@ -20,6 +12,7 @@
             class="radio-input"
             value="PHOTO"
             (change)="onTypeChange()"
+            formControlName="type"
           />
           <label for="option1" class="radio-label">
             Photo
@@ -37,6 +30,7 @@
             class="radio-input"
             value="VIDEO"
             (change)="onTypeChange()"
+            formControlName="type"
           />
           <label for="option2" class="radio-label">
             Video
@@ -49,7 +43,7 @@
 
     <div class="row mt-50">
       <strong>Upload file</strong>
-      <div class="col-md-4 mt-25">
+      <div class="col-md-4 mt-25 d-flex flex-column align-items-center">
         <div class="upload-image-section">
           <span class="upload-icon">
             <span class="material-symbols-outlined"> arrow_upward </span>
@@ -63,17 +57,20 @@
             multiple
           />
         </div>
-        <button class="btn theme-btn">
+        <button class="btn theme-btn mt-2">
           <label for="upload-file-1"> Choose File</label>
         </button>
       </div>
     </div>
 
-    <div class="row mt-50">
-      <div class="col-md-4">
-        <strong>Media title</strong>
-        <input type="text" class="form-control" placeholder="Enter Here" />
-      </div>
+    <div class="row mt-5 gap-4 d-flex" style="margin-left: 0.1rem">
+      <button class="btn theme-btn">Submit</button>
+      <button
+        class="btn theme-btn-secondary"
+        (click)="activeModal.close('cancel')"
+      >
+        Cancel
+      </button>
     </div>
   </div>
 </div>

@@ -72,7 +72,7 @@ export class SidebarComponent implements OnInit {
     {
       parent: "Gallery",
       child: [{ linkName: "", linkRoute: "" }],
-      parentRoute: "/admin/gallery",
+      parentRoute: "/admin/gallery-list",
       icon: "",
     },
     { parent: "Pop up", child: [], parentRoute: "/admin/pop-up", icon: "" },

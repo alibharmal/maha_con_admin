@@ -6,10 +6,11 @@ import { AppComponent } from "./app.component";
 import { InterceptorInterceptor } from "./services/common/interceptor.interceptor";
 import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { AuthenticationService } from "./services/auth/authentication.service";
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, NgbModule],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,

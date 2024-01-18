@@ -51,22 +51,22 @@ export class PopUpComponent {
     });
   }
 
-  submit() {
-    this.isEditMode ? this.updatePopUp() : this.createPopUp();
-  }
+  // submit() {
+    // this.isEditMode ? this.updatePopUp() : this.createPopUp();
+  // }
 
-  createPopUp() {
-    if (this.popUpForm.valid) {
-      this.popupService.createPopUp(this.popUpForm.value).subscribe({
-        next: (res) => {
-          console.log("thsi is res pop up");
-        },
-        error: (error) => {
-          console.log("thsi iserror ", error);
-        },
-      });
-    }
-  }
+  // createPopUp() {
+  //   if (this.popUpForm.valid) {
+  //     this.popupService.createPopUp(this.popUpForm.value).subscribe({
+  //       next: (res) => {
+  //         console.log("thsi is res pop up");
+  //       },
+  //       error: (error) => {
+  //         console.log("thsi iserror ", error);
+  //       },
+  //     });
+  //   }
+  // }
 
   updatePopUp() {
     if (this.popUpForm.valid) {
