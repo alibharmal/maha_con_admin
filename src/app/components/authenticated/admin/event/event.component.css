@@ -64,6 +64,11 @@ textarea {
   color: green;
 }
 
+.custome-icon {
+  border: none !important;
+  color: black;
+}
+
 .upload-file-text {
   padding-left: 0.2rem;
   position: absolute;

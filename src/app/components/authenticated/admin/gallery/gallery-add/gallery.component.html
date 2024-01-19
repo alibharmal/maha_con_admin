@@ -1,11 +1,12 @@
 <div class="main-wrapper">
   <h1 class="page-heading">Add Media</h1>
-  <div class="form">
+  <div class="form" [formGroup]="galleryForm">
+    {{ galleryForm.value | json }}
     <div class="row">
       <div class="col-md-6">
         <div class="form-group">
           <label for="" class="form-label">Title :</label>
-          <input type="text" class="form-control" />
+          <input type="text" class="form-control" formControlName="title" />
         </div>
       </div>
     </div>
@@ -18,13 +19,29 @@
       </div>
       <div class="col-md-6 mt-2" *ngFor="let file of fileList">
         <div class="card">
-          {{ file }}
+          <div class="row d-flex align-items-center">
+            <div class="col-md-10">
+              <img
+                height="60px"
+                width="60px"
+                src="./../../../../../assets/images/file-placeholder.png"
+                alt=""
+                class=""
+              />
+              {{ file }}
+            </div>
+            <div class="col-md-2">
+              <span class="material-symbols-outlined custome-icon">
+                close
+              </span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
     <div class="row d-flex gap-4 mt-4" style="margin-left: 0.1rem">
-      <button class="btn theme-btn">Save</button>
+      <button class="btn theme-btn" (click)="createGallery()">Save</button>
       <button class="btn theme-btn-secondary">Cancel</button>
     </div>
   </div>

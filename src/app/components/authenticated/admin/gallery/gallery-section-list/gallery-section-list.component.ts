@@ -16,6 +16,7 @@ export class GallerySectionListComponent {
     this.galleryService.getAllGallery().subscribe({
       next: (res) => {
         console.log("this is gallery lsit ", res);
+        this.galleryList = res.data
       },
       error: (error) => {
         console.log("this is error ", error);

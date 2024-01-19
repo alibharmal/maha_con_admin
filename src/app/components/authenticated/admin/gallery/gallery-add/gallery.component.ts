@@ -3,6 +3,7 @@ import { FormArray, FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { GalleryAddFileModalComponent } from "./gallery-add-file-modal/gallery-add-file-modal.component";
+import { GalleryService } from "src/app/services/gallery/gallery.service";
 
 @Component({
   selector: "app-gallery",
@@ -11,13 +12,16 @@ import { GalleryAddFileModalComponent } from "./gallery-add-file-modal/gallery-a
 })
 export class GalleryComponent {
   galleryForm!: FormGroup;
-  fileList: Array<any> = ['asfd', '13231']
+  fileList: Array<any> = [];
   constructor(
     private fb: FormBuilder,
     private route: Router,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    private galleryService: GalleryService
   ) {}
-  ngOnInit() {}
+  ngOnInit() {
+    this.createGalleryForm();
+  }
   createGalleryForm() {
     this.galleryForm = this.fb.group({
       title: ["", Validators.required],
@@ -33,9 +37,17 @@ export class GalleryComponent {
     return this.galleryForm.get("media") as FormArray;
   }
 
+  returnCommonGroup(data: any) {
+    return this.fb.group({
+      type: [data.type],
+      url: [data.url],
+      thumbnail_url: [data.thumbnail_url],
+    });
+  }
+
   openAddFileModal() {
     const modalRef = this.modalService.open(GalleryAddFileModalComponent, {
-      size: "lg",
+      size: "xl",
       scrollable: true,
       backdrop: "static",
       keyboard: false,
@@ -47,6 +59,20 @@ export class GalleryComponent {
 
     modalRef.result.then((res: any) => {
       console.log("this is res ", res);
+      if (res != "cancel") {
+        this.mediaArr.push(this.returnCommonGroup(res));
+      }
+    });
+  }
+
+  createGallery() {
+    this.galleryService.createGallery(this.galleryForm.value).subscribe({
+      next: (res) => {
+        console.log("thsi is res ", res);
+      },
+      error: (error) => {
+        console.log("this is error ", error);
+      },
     });
   }
 }

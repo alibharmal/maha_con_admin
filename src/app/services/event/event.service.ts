@@ -22,9 +22,9 @@ export class EventService {
 
   uploadSelectedFileWithUrl(
     fileUrl: string,
-    formData: FormData
+    file: any
   ): Observable<any> {
-    return this.http.put(fileUrl, formData, {
+    return this.http.put(fileUrl, file, {
       reportProgress: true,
     });
   }
