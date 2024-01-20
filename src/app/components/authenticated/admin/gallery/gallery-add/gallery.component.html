@@ -1,7 +1,6 @@
 <div class="main-wrapper">
   <h1 class="page-heading">Add Media</h1>
   <div class="form" [formGroup]="galleryForm">
-    {{ galleryForm.value | json }}
     <div class="row">
       <div class="col-md-6">
         <div class="form-group">
@@ -11,13 +10,17 @@
       </div>
     </div>
     <div class="row d-flex flex-column mt-50">
-      <div class="col-md-6 d-flex justify-content-between">
+      <div class="col-md-8 d-flex justify-content-between">
         <strong>Selected file</strong>
         <button class="btn theme-btn" (click)="openAddFileModal()">
           Add File
         </button>
       </div>
-      <div class="col-md-6 mt-2" *ngFor="let file of fileList; let i = index">
+      <div
+        class="col-md-8 mt-2"
+        formArrayName="media"
+        *ngFor="let file of fileList; let i = index"
+      >
         <div class="card">
           <div class="row d-flex align-items-center">
             <div class="col-md-10">
@@ -44,8 +47,13 @@
     </div>
 
     <div class="row d-flex gap-4 mt-4" style="margin-left: 0.1rem">
-      <button class="btn theme-btn" (click)="createGallery()">Save</button>
-      <button class="btn theme-btn-secondary">Cancel</button>
+      <button class="btn theme-btn" (click)="submit()">Save</button>
+      <button
+        class="btn theme-btn-secondary"
+        [routerLink]="['/admin/gallery-list']"
+      >
+        Cancel
+      </button>
     </div>
   </div>
 </div>

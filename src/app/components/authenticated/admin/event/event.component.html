@@ -3,7 +3,7 @@
   <div class="form" [formGroup]="eventForm">
     <strong>Upload carousel images</strong>
     <div class="row mt-30">
-      <div class="col-md-3 d-flex flex-column align-items-center">
+      <div class="col-md-3 d-flex flex-column align-items-start">
         <div class="upload-image-section">
           <span class="upload-icon">
             <span class="material-symbols-outlined"> arrow_upward </span>
@@ -18,7 +18,7 @@
             (change)="onFileSelect($event)"
           />
         </div>
-        <label class="btn theme-btn mt-2" for="upload-file-1">
+        <label class="btn theme-btn mt-2 custome-margin-upload-btn" for="upload-file-1">
           Choose File</label
         >
       </div>

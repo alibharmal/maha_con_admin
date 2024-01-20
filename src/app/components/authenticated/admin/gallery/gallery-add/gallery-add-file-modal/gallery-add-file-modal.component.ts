@@ -18,6 +18,7 @@ export class GalleryAddFileModalComponent {
   modalForm!: FormGroup;
   isTypePhoto: boolean = true;
   uploadedImageArray: Array<any> = [];
+  thumbnailFile: any
   constructor(
     public activeModal: NgbActiveModal,
     private fb: FormBuilder,
@@ -102,6 +103,7 @@ export class GalleryAddFileModalComponent {
         content_type: file.type,
         file_name: file.name,
       };
+      this.thumbnailFile = file.name
       console.log("this is get url data ", getUrlData);
       this.eventService.getFileUrl(getUrlData).subscribe({
         next: (res: any) => {
@@ -127,6 +129,11 @@ export class GalleryAddFileModalComponent {
         },
       });
     }
+  }
+
+  clearThumbnail(){
+    this.thumbnailFile = ''
+    this.control["thumbnail_url"].patchValue(null);
   }
 
   removeFile(index: number) {

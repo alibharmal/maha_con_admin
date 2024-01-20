@@ -114,3 +114,12 @@ body {
   max-width: 133px !important;
   border: 1px solid black !important;
 }
+
+
+.material-symbols-outlined {
+  cursor: pointer;
+}
+
+.custome-margin-upload-btn {
+  margin-left: 1.8rem;
+}

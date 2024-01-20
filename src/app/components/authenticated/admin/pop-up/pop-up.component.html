@@ -15,9 +15,18 @@
     <div class="row">
       <div class="col-md-3 d-flex flex-column align-items-center">
         <div class="image-section">
-          <img [src]="imageUrl" alt="" />
+          <img [src]="selectedPopUpImage" alt="" />
+          <input
+            type="file"
+            id="popUpFileupload"
+            accept="image/*"
+            style="display: none"
+            (change)="onPopUpSelect($event)"
+          />
         </div>
-        <button class="btn theme-btn mt-2">Change image</button>
+        <label for="popUpFileupload" class="btn theme-btn mt-2"
+          >Change image</label
+        >
       </div>
     </div>
 
@@ -35,8 +44,8 @@
 
     <div class="row">
       <div class="col-md-3 mt-3 btn-group">
-        <button class="btn theme-btn" (click)="updatePopUp()" >Submit</button>
-        <button class="btn theme-btn-secondary">Clear</button>
+        <button class="btn theme-btn" (click)="updatePopUp()">Submit</button>
+        <button class="btn theme-btn-secondary" (click)="clearForm()" >Clear</button>
       </div>
     </div>
   </div>

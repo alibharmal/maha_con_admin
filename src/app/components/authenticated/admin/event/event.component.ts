@@ -10,6 +10,7 @@ import {
 import { Router } from "@angular/router";
 import { AuthenticationService } from "src/app/services/auth/authentication.service";
 import { EventService } from "src/app/services/event/event.service";
+import Swal from "sweetalert2";
 
 @Component({
   selector: "app-event",
@@ -71,6 +72,8 @@ export class EventComponent {
             ) {
               const bannerUrl = this.eventData.banners[index];
               this.bannersArr.push(new FormControl(bannerUrl));
+              const [url, fileName] = bannerUrl.split("com/");
+              this.uploadedImageArray.push(fileName);
             }
           }
         }
@@ -93,13 +96,33 @@ export class EventComponent {
       this.eventService.updateEvent(formData, this.eventData.id).subscribe({
         next: (res) => {
           console.log("this is res event update ", res);
+          if (res) {
+            Swal.fire({
+              icon: "success",
+              title: `Success`,
+              timer: 5000,
+              text: res.message,
+            });
+          }
         },
         error: (error) => {
           console.log("this is error ", error);
+          Swal.fire({
+            icon: "error",
+            title: `Something Went Wrong`,
+            timer: 5000,
+            text: error.message,
+          });
         },
       });
     } else {
       this.eventForm.markAllAsTouched();
+      Swal.fire({
+        icon: "info",
+        title: `Invalid Form`,
+        timer: 5000,
+        text: "Please fill all the mandatory fields",
+      });
     }
   }
 

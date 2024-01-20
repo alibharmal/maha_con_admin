@@ -1,9 +1,9 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-const baseURL = 'http://13.200.240.211/v1';
+import { HttpClient } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+import { BehaviorSubject, Observable } from "rxjs";
+const baseURL = "http://13.200.240.211/v1";
 @Injectable({
-  providedIn: 'root',
+  providedIn: "root",
 })
 export class GalleryService {
   constructor(private http: HttpClient) {}
@@ -21,5 +21,9 @@ export class GalleryService {
       `${baseURL}/admin/gallery/${eventId}`,
       galleryFormValue
     );
+  }
+
+  getGalleryById(galleryId:any): Observable<any> {
+    return this.http.get(`${baseURL}/admin/gallery/${galleryId}`)
   }
 }

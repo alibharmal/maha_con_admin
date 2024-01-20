@@ -19,7 +19,7 @@
               <td>
                 <span
                   class="material-symbols-outlined"
-                  [routerLink]="['/gallery/', gallery.id]"
+                  (click)="onEditGallery(gallery)"
                   routerLinkActive="router-link-active"
                 >
                   edit
