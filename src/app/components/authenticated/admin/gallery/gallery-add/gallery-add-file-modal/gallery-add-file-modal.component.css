@@ -3,6 +3,8 @@
   width: inherit;
   position: relative;
   padding: 2rem;
+  overflow-x: auto;
+  overflow-y: auto;
 }
 
 .upload-image-section {

@@ -41,8 +41,14 @@ export class GalleryAddFileModalComponent {
     console.log("thsi is file type value ", fileType);
     if (fileType == "PHOTO") {
       this.isTypePhoto = true;
+      this.uploadedImageArray = [];
+      this.control["url"].patchValue("");
+      this.control["thumbnail_url"].patchValue(null);
     } else {
       this.isTypePhoto = false;
+      this.uploadedImageArray = [];
+      this.control["url"].patchValue("");
+      this.control["thumbnail_url"].patchValue(null);
     }
   }
 
@@ -85,6 +91,44 @@ export class GalleryAddFileModalComponent {
     }
   }
 
+  onThumbnailSelect(event: any) {
+    let files: FileList = event.target.files;
+    this.uploadedImageArray = [];
+    for (let index = 0; index < event.target.files.length; index++) {
+      const file = event.target.files[index];
+      console.log("thsi is file ", file);
+
+      let getUrlData = {
+        content_type: file.type,
+        file_name: file.name,
+      };
+      console.log("this is get url data ", getUrlData);
+      this.eventService.getFileUrl(getUrlData).subscribe({
+        next: (res: any) => {
+          console.log("this is image url res ", res);
+          if (res.data) {
+            let file: File = files[index];
+            let url: string = res.data.url;
+            this.eventService.uploadSelectedFileWithUrl(url, file).subscribe({
+              next: (res) => {
+                console.log("this is file upload res ", res);
+                let [filePath, rest] = url.split("?");
+                // this.bannersArr.push(new FormControl(filePath));
+                this.control["thumbnail_url"].patchValue(filePath);
+              },
+              error: (error) => {
+                console.log("this is erorr file upload ", error);
+              },
+            });
+          }
+        },
+        error: (error: HttpErrorResponse) => {
+          console.log("thsi is error ", error);
+        },
+      });
+    }
+  }
+
   removeFile(index: number) {
     // this.bannersArr.removeAt(index);
     this.uploadedImageArray.splice(index, 1);
@@ -92,7 +136,11 @@ export class GalleryAddFileModalComponent {
 
   onSubmit() {
     if (this.modalForm.valid) {
-      this.activeModal.close(this.modalForm.value);
+      let data = {
+        formValue: this.modalForm.value,
+        uploadedImageArray: this.uploadedImageArray,
+      };
+      this.activeModal.close(data);
     } else {
       console.log("select at least one file ");
     }

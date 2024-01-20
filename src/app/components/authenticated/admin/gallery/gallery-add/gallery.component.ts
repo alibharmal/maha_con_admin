@@ -60,7 +60,11 @@ export class GalleryComponent {
     modalRef.result.then((res: any) => {
       console.log("this is res ", res);
       if (res != "cancel") {
-        this.mediaArr.push(this.returnCommonGroup(res));
+        this.mediaArr.push(this.returnCommonGroup(res.formValue));
+        for (let index = 0; index < res?.uploadedImageArray.length; index++) {
+          const fileName = res.uploadedImageArray[index];
+          this.fileList.push(fileName);
+        }
       }
     });
   }
@@ -74,5 +78,10 @@ export class GalleryComponent {
         console.log("this is error ", error);
       },
     });
+  }
+
+  removeImage(index: number) {
+    this.mediaArr.removeAt(index);
+    this.fileList.splice(index, 1);
   }
 }

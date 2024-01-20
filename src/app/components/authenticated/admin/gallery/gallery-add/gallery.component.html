@@ -17,7 +17,7 @@
           Add File
         </button>
       </div>
-      <div class="col-md-6 mt-2" *ngFor="let file of fileList">
+      <div class="col-md-6 mt-2" *ngFor="let file of fileList; let i = index">
         <div class="card">
           <div class="row d-flex align-items-center">
             <div class="col-md-10">
@@ -31,8 +31,11 @@
               {{ file }}
             </div>
             <div class="col-md-2">
-              <span class="material-symbols-outlined custome-icon">
-                close
+              <span
+                (click)="removeImage(i)"
+                class="material-symbols-outlined custome-icon"
+              >
+                delete
               </span>
             </div>
           </div>
