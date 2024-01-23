@@ -73,7 +73,11 @@ export class EventComponent {
               const bannerUrl = this.eventData.banners[index];
               this.bannersArr.push(new FormControl(bannerUrl));
               const [url, fileName] = bannerUrl.split("com/");
-              this.uploadedImageArray.push(fileName);
+              let imageData = {
+                name: fileName,
+                url: bannerUrl,
+              };
+              this.uploadedImageArray.push(imageData);
             }
           }
         }
@@ -148,7 +152,11 @@ export class EventComponent {
                 console.log("this is file upload res ", res);
                 let [filePath, rest] = url.split("?");
                 this.bannersArr.push(new FormControl(filePath));
-                this.uploadedImageArray.push(file.name);
+                let imageData = {
+                  name: file.name,
+                  url: filePath,
+                };
+                this.uploadedImageArray.push(imageData);
               },
               error: (error) => {
                 console.log("this is erorr file upload ", error);
@@ -166,5 +174,69 @@ export class EventComponent {
   removeFile(index: number) {
     this.bannersArr.removeAt(index);
     this.uploadedImageArray.splice(index, 1);
+  }
+
+  onDragOver(event: DragEvent): void {
+    console.log("Drag over event:", event);
+    event.preventDefault();
+    event.stopPropagation();
+  }
+
+  onDrop(event: DragEvent): void {
+    console.log("Drop event:", event);
+    event.preventDefault();
+    event.stopPropagation();
+
+    const files = event.dataTransfer?.files;
+
+    if (files && files.length > 0) {
+      console.log("Dropped files:", files);
+      this.uploadDragAndDroppedFiles(files);
+    }
+  }
+
+  onDragLeave(event: DragEvent): void {
+    event.preventDefault();
+    event.stopPropagation();
+  }
+
+  uploadDragAndDroppedFiles(files: any) {
+    for (let index = 0; index < files.length; index++) {
+      const file = files[index];
+      console.log("thsi is file ", file);
+
+      let getUrlData = {
+        content_type: file.type,
+        file_name: file.name,
+      };
+      console.log("this is get url data ", getUrlData);
+      this.eventService.getFileUrl(getUrlData).subscribe({
+        next: (res: any) => {
+          console.log("this is image url res ", res);
+          if (res.data) {
+            let file: File = files[index];
+            let url: string = res.data.url;
+            this.eventService.uploadSelectedFileWithUrl(url, file).subscribe({
+              next: (res) => {
+                console.log("this is file upload res ", res);
+                let [filePath, rest] = url.split("?");
+                this.bannersArr.push(new FormControl(filePath));
+                let imageData = {
+                  name: file.name,
+                  url: filePath,
+                };
+                this.uploadedImageArray.push(imageData);
+              },
+              error: (error) => {
+                console.log("this is erorr file upload ", error);
+              },
+            });
+          }
+        },
+        error: (error: HttpErrorResponse) => {
+          console.log("thsi is error ", error);
+        },
+      });
+    }
   }
 }

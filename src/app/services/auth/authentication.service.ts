@@ -3,7 +3,7 @@ import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 
 // common baseurl
-const baseURL = "http://13.200.240.211/v1";
+const baseURL = "https://mahacon.xyz/v1";
 @Injectable({
   providedIn: "root",
 })

@@ -3,8 +3,13 @@
   <div class="form" [formGroup]="eventForm">
     <strong>Upload carousel images</strong>
     <div class="row mt-30">
-      <div class="col-md-3 d-flex flex-column align-items-start">
-        <div class="upload-image-section">
+      <div class="col-md-3 mt-3 d-flex flex-column align-items-start">
+        <div
+          class="upload-image-section"
+          (dragover)="onDragOver($event)"
+          (drop)="onDrop($event)"
+          (dragleave)="onDragLeave($event)"
+        >
           <span class="upload-icon">
             <span class="material-symbols-outlined"> arrow_upward </span>
           </span>
@@ -18,7 +23,10 @@
             (change)="onFileSelect($event)"
           />
         </div>
-        <label class="btn theme-btn mt-2 custome-margin-upload-btn" for="upload-file-1">
+        <label
+          class="btn theme-btn mt-2 custome-margin-upload-btn"
+          for="upload-file-1"
+        >
           Choose File</label
         >
       </div>
@@ -28,17 +36,21 @@
             class="col-md-6"
             *ngFor="let image of uploadedImageArray; let i = index"
           >
-            <div class="card">
+            <div class="card mt-3">
               <div class="row d-flex align-items-center">
                 <div class="col-md-10">
-                  <img
-                    height="60px"
-                    width="60px"
-                    src="./../../../../../assets/images/file-placeholder.png"
-                    alt=""
-                    class=""
-                  />
-                  {{ image }}
+                  <div class="d-flex align-items-center">
+                    <img
+                      height="100px"
+                      width="100px"
+                      [src]="image.url"
+                      alt=""
+                      class=""
+                    />
+                    <span class="" style="padding-left: 1rem">
+                      {{ image.name }}
+                    </span>
+                  </div>
                 </div>
                 <div class="col-md-2">
                   <span
@@ -65,10 +77,10 @@
             cols="30"
             rows="4"
           ></textarea>
-          <div class="bottom-textarea">
+          <!-- <div class="bottom-textarea">
             <span class="material-symbols-outlined"> delete </span>
             <span class="material-symbols-outlined"> edit </span>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -158,10 +170,10 @@
             cols="30"
             rows="4"
           ></textarea>
-          <div class="bottom-textarea">
+          <!-- <div class="bottom-textarea">
             <span class="material-symbols-outlined"> delete </span>
             <span class="material-symbols-outlined"> edit </span>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>

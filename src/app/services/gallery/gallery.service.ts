@@ -1,7 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { BehaviorSubject, Observable } from "rxjs";
-const baseURL = "http://13.200.240.211/v1";
+const baseURL = "https://mahacon.xyz/v1";
 @Injectable({
   providedIn: "root",
 })
