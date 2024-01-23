@@ -24,14 +24,16 @@
         <div class="card">
           <div class="row d-flex align-items-center">
             <div class="col-md-10">
-              <img
-                height="60px"
-                width="60px"
-                src="./../../../../../assets/images/file-placeholder.png"
-                alt=""
-                class=""
-              />
-              {{ file }}
+              <div class="d-flex align-items-center">
+                <img
+                  height="100px"
+                  width="100px"
+                  [src]="file.url"
+                  alt=""
+                  class=""
+                />
+                <span style="padding-left: 1rem"> {{ file.name }} </span>
+              </div>
             </div>
             <div class="col-md-2">
               <span

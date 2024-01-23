@@ -198,6 +198,7 @@ export class GalleryAddFileModalComponent {
                 console.log("this is file upload res ", res);
                 let [filePath, rest] = url.split("?");
                 // this.bannersArr.push(new FormControl(filePath));
+                this.control["url"].patchValue(filePath);
                 let imageData = {
                   name: file.name,
                   url: filePath,

@@ -182,7 +182,11 @@ export class GalleryComponent {
             ) {
               let media = this.galleryData.media[index];
               const [url, fileName] = media.url.split("com/");
-              this.fileList.push(fileName);
+              let imageData = {
+                name: fileName,
+                url: media.url,
+              };
+              this.fileList.push(imageData);
               this.mediaArr.push(this.returnCommonGroup(media));
             }
           }
