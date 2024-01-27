@@ -4,6 +4,7 @@ import { EventComponent } from "./event/event.component";
 import { GalleryComponent } from "./gallery/gallery-add/gallery.component";
 import { PopUpComponent } from "./pop-up/pop-up.component";
 import { GallerySectionListComponent } from "./gallery/gallery-section-list/gallery-section-list.component";
+import { NotificationComponent } from "./notification/notification.component";
 
 const routes: Routes = [
   { path: "", redirectTo: "event", pathMatch: "full" },
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: "gallery", component: GalleryComponent, pathMatch: "full" },
   { path: "gallery/:id", component: GalleryComponent, pathMatch: "full" },
   { path: "pop-up", component: PopUpComponent, pathMatch: "full" },
+  { path: "notification", component: NotificationComponent, pathMatch: "full" },
 ];
 
 @NgModule({

@@ -1,0 +1,22 @@
+.main-wrapper {
+  height: inherit;
+  width: inherit;
+  position: relative;
+  padding-right: 10rem;
+  padding-bottom: 3.813rem;
+}
+
+.form-group {
+  position: relative;
+}
+
+.theme-btn {
+  padding: 0.5rem 1rem;
+  min-width: 180px !important;
+}
+
+.messageLength {
+    position: absolute;
+    right: 1rem;
+    bottom: 0.5rem;
+}
