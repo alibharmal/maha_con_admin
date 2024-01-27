@@ -76,6 +76,7 @@ export class SidebarComponent implements OnInit {
       icon: "",
     },
     { parent: "Pop up", child: [], parentRoute: "/admin/pop-up", icon: "" },
+    { parent: "Notification", child: [], parentRoute: "/admin/notification", icon: "" },
   ];
 
   constructor(private route: Router) {

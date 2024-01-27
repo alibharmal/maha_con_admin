@@ -12,6 +12,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { GallerySectionListComponent } from "./gallery/gallery-section-list/gallery-section-list.component";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { GalleryAddFileModalComponent } from "./gallery/gallery-add/gallery-add-file-modal/gallery-add-file-modal.component";
+import { NotificationComponent } from './notification/notification.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { GalleryAddFileModalComponent } from "./gallery/gallery-add/gallery-add-
     PopUpComponent,
     GallerySectionListComponent,
     GalleryAddFileModalComponent,
+    NotificationComponent,
   ],
   imports: [
     CommonModule,

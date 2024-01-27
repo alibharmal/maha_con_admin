@@ -20,12 +20,17 @@ export class EventService {
     return this.http.post(`${baseURL}/admin/file_upload`, fileUrlForm);
   }
 
-  uploadSelectedFileWithUrl(
-    fileUrl: string,
-    file: any
-  ): Observable<any> {
+  uploadSelectedFileWithUrl(fileUrl: string, file: any): Observable<any> {
     return this.http.put(fileUrl, file, {
       reportProgress: true,
     });
+  }
+
+  // Notification
+  sendNotification(notificationFormValue: any): Observable<any> {
+    return this.http.post(
+      `${baseURL}/admin/notification`,
+      notificationFormValue
+    );
   }
 }

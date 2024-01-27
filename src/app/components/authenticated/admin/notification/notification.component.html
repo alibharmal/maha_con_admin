@@ -1,0 +1,69 @@
+<div class="main-wrapper">
+  <h1 class="page-heading">Notification</h1>
+  <div class="form mt-5" [formGroup]="notificationForm">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="" class="form-label">Title</label>
+          <textarea
+            name=""
+            id=""
+            rows="2"
+            class="form-control"
+            maxlength="100"
+            formControlName="title"
+            [ngClass]="{
+              'is-invalid':
+                control['title'].invalid &&
+                (control['title'].dirty || control['title'].touched)
+            }"
+          ></textarea>
+          <small
+            class="text-danger"
+            *ngIf="
+              control['title'].invalid &&
+              (control['title'].dirty || control['title'].touched)
+            "
+            >Title is mandatory</small
+          >
+        </div>
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col-md-12">
+        <div class="form-group">
+          <label for="" class="form-label">Message</label>
+          <textarea
+            name=""
+            id=""
+            rows="4"
+            class="form-control"
+            maxlength="150"
+            formControlName="message"
+            [ngClass]="{
+              'is-invalid':
+                control['message'].invalid &&
+                (control['message'].dirty || control['message'].touched)
+            }"
+          ></textarea>
+          <span
+            class="messageLength"
+            [ngClass]="{ 'text-danger': count == 150 }"
+            >{{ count }}/150 Characters</span
+          >
+        </div>
+        <small
+          class="text-danger"
+          *ngIf="
+            control['message'].invalid &&
+            (control['message'].dirty || control['message'].touched)
+          "
+          >Message is mandatory</small
+        >
+      </div>
+    </div>
+  </div>
+  <button class="btn mt-4 theme-btn" (click)="submit()">
+    Send Notification
+  </button>
+</div>
